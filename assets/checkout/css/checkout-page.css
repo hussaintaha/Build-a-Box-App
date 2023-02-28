@@ -1,0 +1,416 @@
+/* Undo background and gradient */
+body, #main, #container, #header, #footer {
+  background: #fff !important;
+}
+
+/* Undo overview background and borders */
+#main #overview {
+  background: #fff;
+  border: none;
+}
+#main #overview > * {
+  border: none;
+}
+#main #thumbs div {
+  border: none;
+}
+
+/* Insert your own logo (upload separately) */
+#logo {
+  height: 160px;
+  background: url({{ 'logo_compact.png' | asset_url | replace: 'http://','https://' }}) center no-repeat;
+}
+
+#header > h1{
+  text-align:center;
+}
+
+/* Hide the name of the store because we got this nifty logo now */
+
+#header > h1 span.title {
+  display:none;
+}
+
+#cost, #order-num{
+	color: #333;
+}
+.link_small,.link_small_ship,.return_to_custmr_info{
+  cursor:pointer;
+}
+.error_shipping {
+  padding: 15px;
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid #d9d9d9;
+  color: red;
+  display:none;
+}
+
+.loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index:999;
+  background: #fff;
+/*   display:none; */
+
+}
+.loading-inner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%);
+}
+
+
+@-webkit-keyframes zoom {
+ from {-webkit-transform:scale(0)}
+ to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+ from {transform:scale(0)}
+ to {transform:scale(1)}
+}
+.swal-button {
+    background-color: #d43f3a;
+}
+
+.mob-selling_points {
+    display: none;
+}
+
+@media screen and (max-width: 749px) {
+  .review-block__content.review-block__content_address {
+    width: 100%;
+    max-width: 413px;;
+  }
+
+  .mob-selling_points {
+    display: block;
+  }
+
+  .selling_points {
+    display: none;
+  }
+
+  .js .order-summary--is-collapsed {
+    height: 100%;
+    display:none;
+    visibility: visible;
+  }
+
+  .content{
+    padding-left: 14px;
+    padding-right: 14px;
+
+  }
+
+  .order-summary-toggle{
+  	padding-left: 10px;
+    padding-right: 10px;
+  }
+  .order-summary-toggle--show .order-summary-toggle__text--show{
+  	float:none !important;
+  }
+  .no-js .order-summary-toggle__icon-wrapper{
+  	float: none !important;
+  }
+
+
+}
+@media screen and (max-width: 365px) {
+   .review-block__content.review-block__content_address {
+    width: 100%;
+    max-width: 200px;
+  }
+
+}
+@media screen and (min-width: 365px) {
+   .review-block__content.review-block__content_address {
+    width: 100%;
+    max-width: 275px;
+  }
+
+}
+/* @media screen and (max-width: 365px) {
+   .review-block__content.review-block__content_address {
+    width: 100%;
+    max-width: 275px;
+  }
+
+} */
+@media screen and (min-width: 749px) {
+  .shown-on-mobile {
+    display: none;
+    color: #c8c8c8;;
+  }
+
+}
+
+.orderSummary{
+	display:none;
+}
+#discount_button {
+
+    cursor: pointer;
+    margin-top: 0;
+    padding: 10px 20px;
+
+}
+.js .order-summary--is-collapsed {
+  height: 100%;
+  visibility: visible;
+
+}
+
+.loading_discount_code {
+
+  display: none;
+  text-align: center;
+
+  margin-top: 0.85714em;
+  border-radius: 4px;
+  font-size: 0.85714em;
+  padding: 0.85714em;
+  overflow: hidden;
+  width: 100px;
+
+}
+.loading_button img {
+    height: 18px;
+}
+.loading_discount_code img{
+   height: 18px;
+}
+input#card_number,#name_of_card,#expiry_date,#cvv {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  padding: 0.94em 0.8em;
+  transition: padding 0.2s ease-out 0s;
+  background-color: white;
+  color: #333333;
+  border-color: #d9d9d9;
+  color: #545454;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  margin: 0px 0px 0px 15px;
+  margin-top: 10px;
+}
+#card_number,#name_of_card{
+  width: 90%;
+}
+
+#cvv,#expiry_date{
+  width: 41%;
+}
+#cart_payment{
+  margin-bottom: 10px;
+  border-top: 1px solid #d9d9d9;
+  background-color: #fafafa;
+
+}
+/**
+* The CSS shown here will not be introduced in the Quickstart guide, but
+* shows how you can use CSS to style your Element's container.
+*/
+input,
+.StripeElement {
+  height: 40px;
+
+  color: #32325d;
+  background-color: white;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+input {
+  padding: 10px 12px;
+}
+
+input:focus,
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+#card_payment{
+margin-top: 10px;
+border-top: 1px solid #d9d9d9;
+padding: 20px;
+display:none;
+}
+#card-element {
+
+    margin: 19px;
+    border: 1px solid #d9d9d9;
+
+}
+.payment_method_loader{
+  display:none;
+/*   background-color: rgba(113,113,113,0.11); */
+  text-align: center;
+}
+.shipping_method_loader {
+/*   background-color: rgba(113,113,113,0.11); */
+  text-align: center;
+  display:none;
+}
+
+
+.Polaris-Spinner {
+    animation: loading .5s linear infinite;
+    color: transparent;
+}
+.Polaris-Spinner--colorTeal {
+    filter: brightness(0) saturate(100%) invert(72%) sepia(8%) saturate(2838%) hue-rotate(130deg) brightness(92%) contrast(87%);
+}
+.Polaris-Spinner--sizeLarge {
+    height: 44px;
+    width: 44px;
+}
+
+@keyframes loading {
+    100% {
+    transform: rotate(1turn);
+}
+}
+
+.wrap{
+  padding:0;
+}
+.CardField-input-wrapper.is-ready-to-slide {
+    padding-top: 12px;
+}
+.StripeElement {
+  box-sizing: border-box;
+
+  height: 40px;
+
+  padding: 10px 12px;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: white;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+.total-recap__original-price{
+  display:none;
+}
+.fa.fa-tags {
+    transform: rotate(90deg);
+}
+.notification-bar__message,.mobilbort{
+	display:none;
+}
+.main-sec{
+	height:100%;
+}
+.skiptranslate iframe,.goog-te-combo {
+    display: none !important;
+}
+body{
+	top:0 !important;
+}
+.notification-bar {
+  background-color: #1d1c1b;
+  color: #d9c379;
+  text-align: left;
+  padding: 10px 0;
+}
+.goog-te-combo {
+  background: #b09e5f;
+  padding: 10px;
+  border-radius: 10px;
+  color:#27241a;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+#shopify-section-announcement-bar {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+.skiptranslate.goog-te-gadget {
+    font-size: 0;
+}
+
+ul.languagelist {
+  position: relative;
+  background-color:#1d1c1b;
+  z-index: 999;
+  height: 42px;
+  width: 180px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+ul.languagelist li {
+    z-index: 2;
+    border: 1px solid #1d1c1b;
+    color: #d9c379;
+    background-color: #1d1c1b;
+}
+ul.languagelist li:not(.init) { float: left; width: 130px; display: none; background: #1d1c1b; }
+ul.languagelist li:not(.init):hover, ul.languagelist li.selected:not(.init) { background: #d9c379;color:#1d1c1b; }
+ul.languagelist li.init {
+  cursor: pointer;
+  border-radius: 10px;
+  color: #b09e5f;
+  font-size: 14px;
+}
+.languagelist img {
+    width: 40px;
+}
+ul.languagelist li a {
+  font-size: 12px;
+  cursor:pointer;
+  padding: 13px 40px 14px 10px;
+  color: #c1b381;
+}
+.display-table .radio__label, .display-table .checkbox__label {
+    display: flex !important;
+}
+.display-table .radio-wrapper, .display-table .checkbox-wrapper {
+    display: flex !important;
+}
+#google_translate_element {
+    height: 100%;
+/*     width: 200px; */
+}
+.notification-bar{
+	display:flex;
+}
+.reset-lang-btn {
+    padding: 10px;
+    background: #c1b381;
+    color: #1d1c1b;
+    border-radius: 5px;
+}

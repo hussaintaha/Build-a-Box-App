@@ -1,0 +1,240 @@
+<div class="step payment_method" data-step="payment_method">
+  <div class="step__sections">
+    <div class="section col-md-12 col-lg-12">
+      <div class="content-box">
+        <div role="grid" class="content-box__row content-box__row--tight-spacing-vertical">
+          <div role="row" class="review-block">
+            <div class="review-block__inner">
+              <div role="gridcell" class="review-block__label">
+                Contact
+              </div>
+              <div role="gridcell" class="review-block__content review-block__content_email">
+                <bdo dir="ltr"> </bdo>
+              </div>
+            </div>
+            <div role="gridcell" class="link_small" class="review-block__link">
+                <span aria-hidden="true">Change</span>
+                <span class="visually-hidden">Change contact information</span>
+            </div>
+          </div>
+          <div role="row" class="review-block">
+            <div class="review-block__inner">
+              <div role="gridcell" class="review-block__label">
+                Ship to
+              </div>
+              <div role="gridcell" class="review-block__content review-block__content_address">
+                <address class="address address--tight">
+                </address>
+              </div>
+            </div>
+            <div role="gridcell" class="link_small" class="review-block__link">
+                <span aria-hidden="true">Change</span>
+                <span class="visually-hidden">Change shipping address</span>
+            </div>
+          </div>
+          <div role="row" class="review-block shipping-review">
+            <div class="review-block__inner">
+              <div role="gridcell" class="review-block__label">
+                Method
+              </div>
+              <div role="gridcell" class="review-block__content" id="shipping_methd">
+                <strong class="emphasis"></strong>
+              </div>
+            </div>
+            <div role="gridcell" class="review-block__link link_small_ship">
+                <span aria-hidden="true">Change</span>
+                <span class="visually-hidden">Change shipping method</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form class="edit_checkout animate-floating-labels" id="billing_address" data-payment-form=""
+     action="/6727991369/checkouts/04528a9996ca1efc5ea9aadeb1bfbbff" accept-charset="UTF-8" method="post">
+      <input class="visually-hidden" type="text" name="step" id="previous_step" value="payment_method">
+      <div class="section section--payment-method" data-payment-method="" >
+        <div class="section__header">
+          <h2 class="section__title" id="main-header" tabindex="-1">
+            Payment method
+          </h2>
+          <p class="section__text">
+            All transactions are secure and encrypted.
+          </p>
+          <div class="payment_method_loader" >
+          <img src="//cdn.shopify.com/s/files/1/0067/2799/1369/t/38/assets/bc-sf-filter-loading.gif?56731"><br></div>
+        </div>
+        <div class="section__content">
+          <div style="display:flex" class="hidden notice notice--error default-background" id="card-fields__processing-error" data-banner="true" role="alert" tabindex="-1" aria-atomic="true" aria-live="polite">
+           	<img width="20px" height="20px" src="https://cdn.shopify.com/s/files/1/0067/2799/1369/files/warning.png?58136" />
+            <div class="notice__content" style="padding-left:10px">
+              <p class="notice__text">An error occurred while processing the payment information. Please try again later.</p>
+            </div>
+          </div>
+          <div data-payment-subform="required">
+            <fieldset class="content-box">
+              <legend class="visually-hidden">Choose a payment method</legend>
+              <div class="payment_method_radio_input"></div>
+            </fieldset>
+          </div>
+
+          <div data-payment-subform="gift_cards" class="hidden">
+            <input value="free" disabled="disabled" size="30" type="hidden" name="payment_gateway">
+            <div class="content-box blank-slate">
+              <div class="content-box__row">
+                <i class="blank-slate__icon icon icon--free-tag"></i>
+                <p>Your order is covered by your gift cards.</p>
+              </div>
+            </div>
+          </div>
+          <div data-payment-subform="free" class="hidden">
+            <input value="free" disabled="disabled" size="30" type="hidden" name="payment_gateway">
+            <div class="content-box blank-slate">
+              <div class="content-box__row">
+                <i class="blank-slate__icon icon icon--free-tag"></i>
+                <p>Your order is <strong>free</strong>. No payment is required.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section section--billing-address" data-billing-address="">
+        <div class="section__header">
+          <h2 class="section__title">Billing address</h2>
+        </div>
+        <div class="section__content">
+          <fieldset class="content-box">
+            <legend class="visually-hidden">Choose a billing address</legend>
+            <div class="radio-wrapper content-box__row" data-same-billing-address="">
+              <div class="radio__input">
+                <input class="input-radio" data-backup="different_billing_address_false" data-trekkie-id="same_billing_address_field" type="radio" value="false" checked="checked" name="checkout[different_billing_address]" id="checkout_different_billing_address_false">
+              </div>
+              <label class="radio__label content-box__emphasis" for="checkout_different_billing_address_false">
+                Same as shipping address
+              </label>
+            </div>
+            <div class="radio-wrapper content-box__row" data-different-billing-address="">
+              <div class="radio__input">
+                <input class="input-radio biling_address" data-backup="different_billing_address_true"  data-trekkie-id="different_billing_address_field" aria-expanded="false" aria-controls="section--billing-address__different" type="radio" value="true" name="checkout[different_billing_address]" id="checkout_different_billing_address_true">
+              </div>
+              <label class="radio__label content-box__emphasis" for="checkout_different_billing_address_true">
+                Use a different billing address
+              </label>
+            </div>
+            <div class="radio-group__row content-box__row content-box__row--secondary" id="section--billing-address__different" style="display:none;">
+              <div class="fieldset" data-address-fields="">
+
+                <div class="field field--required field--half" data-address-field="first_name">
+                  <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_billing_address_first_name">First name</label>
+                    <input placeholder="First name" autocomplete="billing given-name" autocorrect="off" data-trekkie-id="billing_firstname_field" data-backup="first_name" class="field__input" aria-required="true" size="30" type="text" name="checkout[billing_address][first_name]" id="checkout_billing_address_first_name" >
+                  </div>
+                </div>
+                <div class="field field--required field--half" data-address-field="last_name">
+                  <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_billing_address_last_name">Last name</label>
+                    <input placeholder="Last name" autocomplete="billing family-name" autocorrect="off" data-backup="last_name" data-trekkie-id="billing_lastname_field" class="field__input" aria-required="true" size="30" type="text" name="checkout[billing_address][last_name]" id="checkout_billing_address_last_name" >
+                  </div>
+                </div>
+                <div data-address-field="company" data-autocomplete-field-container="true" class="field field--optional">
+                  <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_billing_address_company">Company (optional)</label>
+                    <input placeholder="Company (optional)" autocomplete="billing organization" autocorrect="off" data-trekkie-id="billing_company_field" data-backup="company" class="field__input" size="30" type="text" name="checkout[billing_address][company]" id="checkout_billing_address_company">
+                  </div>
+                </div>
+                <div data-address-field="address1" data-autocomplete-field-container="true" class="field field--required">
+                  <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_billing_address_address1">Address</label>
+                    <input placeholder="Address" autocomplete="billing address-line1" autocorrect="off" role="combobox" aria-autocomplete="list" aria-owns="address-autocomplete" aria-expanded="false" aria-required="true" data-backup="address1" data-trekkie-id="billing_address1_google_autocomplete_field" data-autocomplete-trigger="true" data-autocomplete-title="Suggestions" data-autocomplete-single-item="1 item available" data-autocomplete-multi-item="{{number}} items available" data-autocomplete-item-selection="{{number}} of {{total}}" data-autocomplete-close="Close suggestions" class="field__input" size="30" type="text" name="checkout[billing_address][address1]" id="checkout_billing_address_address1">
+                  </div>
+                </div>
+                <div data-address-field="address2" data-autocomplete-field-container="true" class="field field--optional">
+                  <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_billing_address_address2">Door code, floor, apt, suite, suggestions, requests, etc. (optional)</label>
+                    <input placeholder="Door code, floor, apt, suite, suggestions, requests, etc. (optional)" autocomplete="billing address-line2" autocorrect="off" data-trekkie-id="billing_address2_field" data-backup="address2" class="field__input" size="30" type="text" name="checkout[billing_address][address2]" id="checkout_billing_address_address2">
+                  </div>
+                </div>
+                <div data-address-field="city" data-autocomplete-field-container="true" class="field field--required">
+                  <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_billing_address_city">City</label>
+                    <input placeholder="City" autocomplete="billing address-level2" autocorrect="off" data-trekkie-id="billing_city_field" data-backup="city" class="field__input" aria-required="true" size="30" type="text" name="checkout[billing_address][city]" id="checkout_billing_address_city">
+                  </div>
+                </div>
+                <div class="field field--required field--third field--show-floating-label" data-address-field="country" data-autocomplete-field-container="true">
+                  <div class="field__input-wrapper field__input-wrapper--select">
+                    <label class="field__label field__label--visible" for="checkout_billing_address_country">Country</label>
+                    <select size="1" autocomplete="billing country" data-trekkie-id="billing_country_field" data-backup="country" class="field__input field__input--select" aria-required="true" name="checkout[billing_address][country]" id="checkout_billing_address_country" >
+
+                    </select>
+                    <div class="field__caret">
+                      <svg class="icon-svg icon-svg--color-adaptive-lighter icon-svg--size-10 field__caret-svg" aria-hidden="true" focusable="false">
+                        <use xlink:href="#caret-down"></use>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="field field--required field--show-floating-label field--third" data-address-field="province" data-autocomplete-field-container="true">
+                  <div class="field__input-wrapper field__input-wrapper--select">
+                    <label class="field__label field__label--visible" for="checkout_billing_address_province">State</label>
+                    <select placeholder="State" autocomplete="billing address-level1" autocorrect="off" data-trekkie-id="billing_province_field" data-backup="province" class="field__input field__input--select" aria-required="true" name="checkout[billing_address][province]" id="checkout_billing_address_province">
+                      <option value="">Select State</option>
+                    </select>
+                    <div class="field__caret shown-if-js">
+                      <svg class="icon-svg icon-svg--color-adaptive-lighter icon-svg--size-10 field__caret-svg" aria-hidden="true" focusable="false">
+                        <use xlink:href="#caret-down"></use>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="field field--required field--third" data-address-field="zip" data-autocomplete-field-container="true">
+                  <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_billing_address_zip">PIN code</label>
+                    <input placeholder="Pincode" autocomplete="billing postal-code" autocorrect="off" data-backup="zip" data-trekkie-id="billing_zip_google_autocomplete_field" data-autocomplete-trigger="true" data-autocomplete-title="Suggestions" data-autocomplete-single-item="1 item available" data-autocomplete-multi-item="{{number}} items available" data-autocomplete-item-selection="{{number}} of {{total}}" data-autocomplete-close="Close suggestions" class="field__input field__input--zip" aria-required="true" size="30" type="text" name="checkout[billing_address][zip]" id="checkout_billing_address_zip" >
+                  </div>
+                </div>
+                <div data-address-field="phone" class="field field--required">
+                  <div class="field__input-wrapper field__input-wrapper--icon-right">
+                    <label class="field__label field__label--visible" for="checkout_billing_address_phone">Phone number with country code</label>
+                    <input placeholder="Phone number with country code" autocomplete="billing tel" autocorrect="off" data-backup="phone" data-trekkie-id="billing_phone_field" data-phone-formatter="true" data-phone-formatter-country-select="[name='checkout[billing_address][country]']" aria-describedby="tooltip-for-phone" aria-required="true" class="field__input field__input--numeric" size="30" type="tel" name="checkout[billing_address][phone]" id="checkout_billing_address_phone">
+                    <div id="phone_tooltip" role="tooltip" class="field__icon has-tooltip">
+                      <span id="tooltip-for-phone" class="tooltip">
+                        In case we need to contact you about your order
+                      </span>
+                      <div class="field__icon-svg">
+                        <svg class="icon-svg icon-svg--color-adaptive-lighter icon-svg--size-16 icon-svg--block" aria-hidden="true" focusable="false">
+                          <use xlink:href="#question"></use>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+      <div class="step__footer" data-step-footer="">
+        <input type="hidden" name="complete" value="1">
+        <div class="">
+          <button name="button" type="button" id="complete_payment" class="step__footer__continue-btn btn " data-trekkie-id="complete_order_button" aria-busy="false">
+            <span class="btn__content">
+              Complete order
+            </span>
+            <svg class="icon-svg icon-svg--size-18 btn__spinner icon-svg--spinner-button" aria-hidden="true" focusable="false">
+              <use xlink:href="#spinner-button"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="hidden-if-js">
+          <button name="button" type="submit" id="continue_button" class="step__footer__continue-btn btn " data-trekkie-id="complete_order_button" aria-busy="false">
+            <span class="btn__content">
+              Continue to the payment gateway
+            </span>
+            <svg class="icon-svg icon-svg--size-18 btn__spinner icon-svg--spinner-button" aria-hidden="true" focusable="false">
+              <use xlink:href="#spinner-button"></use>
+            </svg>
+          </button>
+        </div>
+        <span class="return_to_shipping_method" style="cursor: pointer;">
+          <svg focusable="false" aria-hidden="true" class="icon-svg icon-svg--color-accent icon-svg--size-10 previous-link__icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
+            <path d="M8 1L7 0 3 4 2 5l1 1 4 4 1-1-4-4"></path>
+          </svg>
+          Return to shipping method</span>
+      </div>
+      <input type="hidden" name="checkout[client_details][browser_width]" value="1354"><input type="hidden" name="checkout[client_details][browser_height]" value="557"><input type="hidden" name="checkout[client_details][javascript_enabled]" value="1"><input type="hidden" name="checkout[client_details][color_depth]" value="24"><input type="hidden" name="checkout[client_details][java_enabled]" value="false"><input type="hidden" name="checkout[client_details][browser_tz]" value="-330">
+    </form>
+  </div>
+</div>

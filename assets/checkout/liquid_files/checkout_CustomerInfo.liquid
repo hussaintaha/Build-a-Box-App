@@ -1,0 +1,261 @@
+<div class="step contact_information" data-step="contact_information">
+  <form class="edit_checkout_customer_info edit_checkout animate-floating-labels" novalidate="novalidate" data-customer-information-form="true" data-email-or-phone="false" action="/6727991369/checkouts/04528a9996ca1efc5ea9aadeb1bfbbff" accept-charset="UTF-8" method="post">
+    <input type="hidden" id="currency" name="currency" value="{{ shop.currency }}" class="visually-hidden">
+    <div class="step__sections">
+      <div class="section section--contact-information">
+        {% if customer %}
+        <div class="section__content" data-section="customer-information" data-shopify-pay-validate-on-load="false">
+          <input value="{{ customer.email }}" size="30" type="hidden" name="checkout[email]" id="checkout_email">
+          <div class="logged-in-customer-information">
+            <div class="logged-in-customer-information__avatar-wrapper">
+              <div class="logged-in-customer-information__avatar gravatar" style="background-image: url(//proxy.shopifycdn.com/0731ae9c8490c82abbc9ec67c84aa0672391577c9c522197ad39dfbe06294c5c/www.gravatar.com/avatar/9bec0b44334f09d1280b32dec14c0795.jpg?s=100&amp;d=https%3A%2F%2Fcdn.shopify.com%2Fs%2Fassets%2Fno-gravatar-new-04e7c2331218ac202e79e31be502fd5631bc96cb0206580dbcb0720ebbbd7c73_100x100.png);filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='//proxy.shopifycdn.com/0731ae9c8490c82abbc9ec67c84aa0672391577c9c522197ad39dfbe06294c5c/www.gravatar.com/avatar/9bec0b44334f09d1280b32dec14c0795.jpg?s=100&amp;d=https%3A%2F%2Fcdn.shopify.com%2Fs%2Fassets%2Fno-gravatar-new-04e7c2331218ac202e79e31be502fd5631bc96cb0206580dbcb0720ebbbd7c73_100x100.png', sizingMethod='scale')" role="img" aria-label="Avatar"></div>
+            </div>
+
+            <p class="logged-in-customer-information__paragraph">
+              <span class="page-main__emphasis">{{ customer.first_name }} {{ customer.last_name }}</span>
+              <span data-rtl-ensure="">({{ customer.email }})</span>
+              <br>
+              <a id="customer_logout" href="{{ shop.url }}/account/logout?return_url=https://{{shop.domain}}/apps/builder/checkout">Log out</a>
+            </p>
+          </div>
+        </div>
+        {% else %}
+        <div class="section__header">
+          <div class="layout-flex layout-flex--tight-vertical layout-flex--loose-horizontal layout-flex--wrap">
+            <h2 class="section__title layout-flex__item layout-flex__item--stretch" id="main-header" tabindex="-1">
+              Contact information
+            </h2>
+            <p class="layout-flex__item">
+              <span aria-hidden="true">Already have an account?</span>
+              <a data-trekkie-id="have_an_account_login_link" id="have_an_account_login_link"
+              href="https://{{shop.domain}}/account/login?checkout_url=https://{{shop.domain}}/apps/builder/checkout">
+                <span class="visually-hidden">Already have an account?</span>
+                Log in
+              </a>
+            </p>
+          </div>
+        </div>
+        <div class="section__content" data-section="customer-information" data-shopify-pay-validate-on-load="false">
+          <div class="fieldset">
+            <div data-shopify-pay-email-flow="false" class="field field--required field--show-floating-label">
+              <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_email">Email</label>
+                <input placeholder="Email" autocapitalize="off" spellcheck="false" autocomplete="shipping email" data-trekkie-id="email_field" data-autofocus="true" data-backup="customer_email" aria-describedby="checkout-context-step-one" aria-required="true" class="field__input" size="30" type="email" value="{{ customer.email }}" name="checkout[email]" id="checkout_email">
+              </div>
+            </div>
+          </div>
+
+        </div>
+        {% endif %}
+      </div>
+      <div class="section section--shipping-address" data-shipping-address="" data-update-order-summary="">
+        <div class="section__header">
+          <h2 class="section__title">
+            Shipping address
+          </h2>
+        </div>
+
+        <div class="section__content">
+          <div class="fieldset" data-address-fields="">
+            <div class="field field--required field--show-floating-label field--half" data-address-field="first_name">
+              <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_shipping_address_first_name">First name</label>
+                <input placeholder="First name" autocomplete="shipping given-name" autocorrect="off" data-trekkie-id="shipping_firstname_field" data-backup="first_name" class="field__input" aria-required="true" size="30" type="text" value="{{ customer.first_name }}" name="checkout[shipping_address][first_name]" id="checkout_shipping_address_first_name">
+              </div>
+            </div>
+            <div class="field field--required field--show-floating-label field--half" data-address-field="last_name">
+              <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_shipping_address_last_name">Last name</label>
+                <input placeholder="Last name" autocomplete="shipping family-name" autocorrect="off" data-backup="last_name" data-trekkie-id="shipping_lastname_field" class="field__input" aria-required="true" size="30" type="text" value="{{ customer.last_name }}" name="checkout[shipping_address][last_name]" id="checkout_shipping_address_last_name">
+              </div>
+            </div>
+            {% if customer.addresses %}
+            {% for address in customer.addresses %}
+            {%if forloop.index > 1 %}{% break%}{%endif%}
+            <div data-address-field="company" data-autocomplete-field-container="true" class="field field--optional field--show-floating-label">
+              <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_shipping_address_company">Company (optional)</label>
+                <input placeholder="Company (optional)" autocomplete="shipping organization" autocorrect="off" data-trekkie-id="shipping_company_field" data-backup="company" class="field__input" size="30" type="text" value="{{ address.company }}" name="checkout[shipping_address][company]" id="checkout_shipping_address_company">
+              </div>
+            </div>
+            <div data-address-field="address1" data-autocomplete-field-container="true" class="field field--required field--show-floating-label">
+              <div class="field__input-wrapper">
+                <label class="field__label field__label--visible" for="checkout_shipping_address_address1">Address</label>
+                <input placeholder="Address" autocomplete="shipping address-line1" autocorrect="off" role="combobox" aria-autocomplete="list" aria-owns="address-autocomplete" aria-expanded="false" aria-required="true" data-backup="address1" data-trekkie-id="shipping_address1_google_autocomplete_field" data-autocomplete-trigger="true" data-autocomplete-title="Suggestions" data-autocomplete-single-item="1 item available" data-autocomplete-multi-item="{{number}} items available" data-autocomplete-item-selection="{{number}} of {{total}}" data-autocomplete-close="Close suggestions" class="field__input" size="30" type="text" value="{{ address.address1 }}" name="checkout[shipping_address][address1]" id="checkout_shipping_address_address1">
+              </div>
+            </div>
+            <div data-address-field="address2" data-autocomplete-field-container="true" class="field field--optional field--show-floating-label">
+              <div class="field__input-wrapper">
+                <label class="field__label field__label--visible" for="checkout_shipping_address_address2">Door code, floor, apt, suite, suggestions, requests, etc. (optional)</label>
+                <input placeholder="Door code, floor, apt, suite, suggestions, requests, etc. (optional)" autocomplete="shipping address-line2" autocorrect="off" data-trekkie-id="shipping_address2_field" data-backup="address2" class="field__input" size="30" type="text" value="{{ address.address2 }}" name="checkout[shipping_address][address2]" id="checkout_shipping_address_address2">
+              </div>
+            </div>
+            <div data-address-field="city" data-autocomplete-field-container="true" class="field field--required field--show-floating-label">
+              <div class="field__input-wrapper">
+                <label class="field__label field__label--visible" for="checkout_shipping_address_city">City</label>
+                <input placeholder="City" autocomplete="shipping address-level2" autocorrect="off" data-trekkie-id="shipping_city_field" data-backup="city" class="field__input" aria-required="true" size="30" type="text" value="{{ address.city }}" name="checkout[shipping_address][city]" id="checkout_shipping_address_city">
+              </div>
+            </div>
+            <!--             <input type="text" class="visually-hidden countryInput" value="{{ customer.default_address.country}}">
+            <input type="text" class="visually-hidden stateInput" value="{{address.province}}"> -->
+            <div class="field field--required field--show-floating-label field--third" data-address-field="country" data-autocomplete-field-container="true">
+              <div class="field__input-wrapper field__input-wrapper--select">
+                <label class="field__label field__label--visible" for="checkout_shipping_address_country">Country</label>
+                <select size="1" autocomplete="shipping country" data-trekkie-id="shipping_country_field" data-backup="country" class="field__input field__input--select" aria-required="true" name="checkout[shipping_address][country]" id="checkout_shipping_address_country">
+
+                </select>
+                <div class="field__caret">
+                  <svg class="icon-svg icon-svg--color-adaptive-lighter icon-svg--size-10 field__caret-svg" aria-hidden="true" focusable="false">
+                    <use xlink:href="#caret-down"></use>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="field field--required field--show-floating-label field--third" data-address-field="province" data-autocomplete-field-container="true">
+              <div class="field__input-wrapper field__input-wrapper--select">
+                <label class="field__label field__label--visible" for="checkout_shipping_address_province">State</label>
+                <select placeholder="State" autocomplete="shipping address-level1" autocorrect="off" data-trekkie-id="shipping_province_field" data-backup="province" class="field__input field__input--select" aria-required="true" name="checkout[shipping_address][province]" id="checkout_shipping_address_province">
+                  <option value="">Select State</option>
+                </select>
+                <div class="field__caret shown-if-js">
+                  <svg class="icon-svg icon-svg--color-adaptive-lighter icon-svg--size-10 field__caret-svg" aria-hidden="true" focusable="false">
+                    <use xlink:href="#caret-down"></use>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="field field--required field--show-floating-label field--third" data-address-field="zip" data-autocomplete-field-container="true">
+              <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_shipping_address_zip">Postal code</label>
+                <input placeholder="Pincode" autocomplete="shipping postal-code" autocorrect="off" data-backup="zip" data-trekkie-id="shipping_zip_google_autocomplete_field" data-autocomplete-trigger="true" data-autocomplete-title="Suggestions" data-autocomplete-single-item="1 item available" data-autocomplete-multi-item="{{number}} items available" data-autocomplete-item-selection="{{number}} of {{total}}" data-autocomplete-close="Close suggestions" class="field__input field__input--zip" aria-required="true" size="30" type="text" value="{{ address.zip }}" name="checkout[shipping_address][zip]" id="checkout_shipping_address_zip">
+              </div>
+            </div>
+            <div data-address-field="phone" class="field field--required field--show-floating-label">
+              <div class="field__input-wrapper field__input-wrapper--icon-right">
+                <label class="field__label field__label--visible" for="checkout_shipping_address_phone">Phone number with country code</label>
+                <input placeholder="Phone number with country code" autocomplete="shipping tel" autocorrect="off" data-backup="phone" data-trekkie-id="shipping_phone_field" data-phone-formatter="true" data-phone-formatter-country-select="[name='checkout[shipping_address][country]']" aria-describedby="tooltip-for-phone" aria-required="true" class="field__input field__input--numeric" size="30" type="tel" value="{{ address.phone }}" name="checkout[shipping_address][phone]" id="checkout_shipping_address_phone" data-phone-formatter-country-code="91">
+                <div id="phone_tooltip" role="tooltip" class="field__icon has-tooltip">
+                  <span id="tooltip-for-phone" class="tooltip">
+                    In case we need to contact you about your order
+                  </span>
+                  <div class="field__icon-svg">
+                    <svg class="icon-svg icon-svg--color-adaptive-lighter icon-svg--size-16 icon-svg--block" aria-hidden="true" focusable="false">
+                      <use xlink:href="#question"></use>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            {%else%}
+            <div data-address-field="company" data-autocomplete-field-container="true" class="field field--optional field--show-floating-label">
+              <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_shipping_address_company">Company (optional)</label>
+                <input placeholder="Company (optional)" autocomplete="shipping organization" autocorrect="off" data-trekkie-id="shipping_company_field" data-backup="company" class="field__input" size="30" type="text" value="{{ address.company }}" name="checkout[shipping_address][company]" id="checkout_shipping_address_company">
+              </div>
+            </div>
+            <div data-address-field="address1" data-autocomplete-field-container="true" class="field field--required field--show-floating-label">
+              <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_shipping_address_address1">Address</label>
+                <input placeholder="Address" autocomplete="shipping address-line1" autocorrect="off" role="combobox" aria-autocomplete="list" aria-owns="address-autocomplete" aria-expanded="false" aria-required="true" data-backup="address1" data-trekkie-id="shipping_address1_google_autocomplete_field" data-autocomplete-trigger="true" data-autocomplete-title="Suggestions" data-autocomplete-single-item="1 item available" data-autocomplete-multi-item="{{number}} items available" data-autocomplete-item-selection="{{number}} of {{total}}" data-autocomplete-close="Close suggestions" class="field__input" size="30" type="text" value="{{ address.address1 }}" name="checkout[shipping_address][address1]" id="checkout_shipping_address_address1">
+              </div>
+            </div>
+            <div data-address-field="address2" data-autocomplete-field-container="true" class="field field--optional field--show-floating-label">
+              <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_shipping_address_address2">Door code, floor, apt, suite, suggestions, requests, etc. (optional)</label>
+                <input placeholder="Door code, floor, apt, suite, suggestions, requests, etc. (optional)" autocomplete="shipping address-line2" autocorrect="off" data-trekkie-id="shipping_address2_field" data-backup="address2" class="field__input" size="30" type="text" value="{{ address.address2 }}" name="checkout[shipping_address][address2]" id="checkout_shipping_address_address2">
+              </div>
+            </div>
+            <div data-address-field="city" data-autocomplete-field-container="true" class="field field--required field--show-floating-label">
+              <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_shipping_address_city">City</label>
+                <input placeholder="City" autocomplete="shipping address-level2" autocorrect="off" data-trekkie-id="shipping_city_field" data-backup="city" class="field__input" aria-required="true" size="30" type="text" value="{{ address.city }}" name="checkout[shipping_address][city]" id="checkout_shipping_address_city">
+              </div>
+            </div>
+
+            <div class="field field--required field--show-floating-label field--third" data-address-field="country" data-autocomplete-field-container="true">
+              <div class="field__input-wrapper field__input-wrapper--select">
+                <label class="field__label field__label--visible" for="checkout_shipping_address_country">Country</label>
+                <select size="1" autocomplete="shipping country" data-trekkie-id="shipping_country_field" data-backup="country" class="field__input field__input--select" aria-required="true" name="checkout[shipping_address][country]" id="checkout_shipping_address_country">
+
+                </select>
+                <div class="field__caret">
+                  <svg class="icon-svg icon-svg--color-adaptive-lighter icon-svg--size-10 field__caret-svg" aria-hidden="true" focusable="false">
+                    <use xlink:href="#caret-down"></use>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="field field--required field--show-floating-label field--third" data-address-field="province" data-autocomplete-field-container="true">
+              <div class="field__input-wrapper field__input-wrapper--select">
+                <label class="field__label field__label--visible" for="checkout_shipping_address_province">State</label>
+                <select placeholder="State" autocomplete="shipping address-level1" autocorrect="off" data-trekkie-id="shipping_province_field" data-backup="province" class="field__input field__input--select" aria-required="true" name="checkout[shipping_address][province]" id="checkout_shipping_address_province">
+                </select>
+                <div class="field__caret shown-if-js">
+                  <svg class="icon-svg icon-svg--color-adaptive-lighter icon-svg--size-10 field__caret-svg" aria-hidden="true" focusable="false">
+                    <use xlink:href="#caret-down"></use>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="field field--required field--show-floating-label field--third" data-address-field="zip" data-autocomplete-field-container="true">
+              <div class="field__input-wrapper"><label class="field__label field__label--visible" for="checkout_shipping_address_zip">Postal code</label>
+                <input placeholder="Pincode" autocomplete="shipping postal-code" autocorrect="off" data-backup="zip" data-trekkie-id="shipping_zip_google_autocomplete_field" data-autocomplete-trigger="true" data-autocomplete-title="Suggestions" data-autocomplete-single-item="1 item available" data-autocomplete-multi-item="{{number}} items available" data-autocomplete-item-selection="{{number}} of {{total}}" data-autocomplete-close="Close suggestions" class="field__input field__input--zip" aria-required="true" size="30" type="text" value="{{ address.zip }}" name="checkout[shipping_address][zip]" id="checkout_shipping_address_zip">
+              </div>
+            </div>
+            <div data-address-field="phone" class="field field--required field--show-floating-label">
+              <div class="field__input-wrapper field__input-wrapper--icon-right">
+                <label class="field__label field__label--visible" for="checkout_shipping_address_phone">Phone number with country code</label>
+                <input placeholder="Phone number with country code" autocomplete="shipping tel" autocorrect="off" data-backup="phone" data-trekkie-id="shipping_phone_field" data-phone-formatter="true" data-phone-formatter-country-select="[name='checkout[shipping_address][country]']" aria-describedby="tooltip-for-phone" aria-required="true" class="field__input field__input--numeric" size="30" type="tel" value="{{ address.phone }}" name="checkout[shipping_address][phone]" id="checkout_shipping_address_phone" data-phone-formatter-country-code="91">
+                <div id="phone_tooltip" role="tooltip" class="field__icon has-tooltip">
+                  <span id="tooltip-for-phone" class="tooltip">
+                    In case we need to contact you about your order
+                  </span>
+                  <div class="field__icon-svg">
+                    <svg class="icon-svg icon-svg--color-adaptive-lighter icon-svg--size-16 icon-svg--block" aria-hidden="true" focusable="false">
+                      <use xlink:href="#question"></use>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="save_info" style="margin-left: 8px;">
+              <div class="checkbox-wrapper" >
+                <div class="checkbox__input">
+                  <input class="input-checkbox" data-backup="remember_me" data-trekkie-id="remember_me_field" type="checkbox" value="1" name="checkout[remember_me]" id="checkout_remember_me">
+                </div>
+                <label class="checkbox__label" for="checkout_remember_me">
+                  Save this information for next time
+                </label>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mob-selling_points" style="margin-top:30px">
+      <h2>PURCHASE SECURELY ONLINE</h2>
+      <p>√ Quick delivery free of charge to all countries</p>
+      <p>√ Two-year warranty</p>
+      <p>√ 30-day return policy</p>
+      <p>√ All products come in gift boxes*</p>
+      <p>√ Free returns for orders over 150 EUR</p>
+      <p>√ Buyer and data protection</p>
+      <p>√ Secure payment with SSL encryption</p>
+    </div>
+
+    <div class="step__footer" data-step-footer="">
+      <button
+              on name="button" type="button" id="continue_button_shipping" class="step__footer__continue-btn btn " data-trekkie-id="continue_to_shipping_method_button" aria-busy="false">
+        <span >
+          Continue to shipping method
+        </span>
+        <svg class="icon-svg icon-svg--size-18 btn__spinner icon-svg--spinner-button" aria-hidden="true" focusable="false">
+          <use xlink:href="#spinner-button"></use>
+        </svg>
+      </button>
+      <a class="step__footer__previous-link" data-trekkie-id="previous_step_link" href="https://{{shop.domain}}/cart">
+        <svg focusable="false" aria-hidden="true" class="icon-svg icon-svg--color-accent icon-svg--size-10 previous-link__icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
+          <path d="M8 1L7 0 3 4 2 5l1 1 4 4 1-1-4-4"></path>
+        </svg>
+        <span class="step__footer__previous-link-content">Return to cart</span>
+      </a>
+    </div>
+  </form>
+</div>
+<div class = "error_shipping " >There is no Shipping  available for this address</div>
